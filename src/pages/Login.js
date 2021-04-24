@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { LoginAction} from '../store/actions/LoginActions';
+import { LoginAction } from '../store/actions/LoginActions';
 import { connect } from 'react-redux';
 const Login = (props) => {
     const [isLoading, setIsLoading] = useState(false)
     const [username, setusername] = useState('');
     const [email, setEmail] = useState('');
+  
     const login = (username, email) => {
         setIsLoading(true);
         let payload = { username: username, email: email }
@@ -17,11 +18,11 @@ const Login = (props) => {
 
     }
     const handleChange = (e) => {
-       return(
-            e.target.name==='uname'?setusername(e.target.value):
-            e.target.name == 'psw'?setEmail(e.target.value):
-            ()=>{}
-       )
+        return (
+            e.target.name === 'uname' ? setusername(e.target.value) :
+                e.target.name == 'psw' ? setEmail(e.target.value) :
+                    () => { }
+        )
     }
     const handleClick = (e) => {
         e.preventDefault();
@@ -36,13 +37,13 @@ const Login = (props) => {
                         <label htmlFor="uname"><b>Username</b></label>
                         <input type="text" value={username}
                             name="uname" placeholder="Enter Username"
-                             onChange={handleChange}required 
+                            onChange={handleChange} required
                         />
                         <label htmlFor="psw"><b>Email</b></label>
-                        <input type="email" placeholder="Enter Email" 
+                        <input type="email" placeholder="Enter Email"
                             name="psw" onChange={handleChange} required />
                         <button type="submit" onClick={handleClick}>
-                            {!isLoading?"Login":'Loading...'}
+                            {!isLoading ? "Login" : 'Loading...'}
                         </button>
                     </div>
 
@@ -51,13 +52,13 @@ const Login = (props) => {
         </div>
     )
 }
-const mapStateToProps = (state)=>{
-    console.log('state',state);
-     return {
+const mapStateToProps = (state) => {
+    console.log('state', state);
+    return {
         userDetails: state.login.userDetails,
     }
 }
-const mapDispatchToProps ={
-    loginAction:LoginAction
+const mapDispatchToProps = {
+    loginAction: LoginAction
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

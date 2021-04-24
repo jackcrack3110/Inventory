@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import './App.css';
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
-
+import Product from './components/Product'
 
 function App() {
  
@@ -11,8 +11,13 @@ function App() {
     <BrowserRouter>
       <div className='App'>
         <Switch>
-          <Route exact path='/' component={Login} />
-          <Route exact path='/dashboard' component={Dashboard} />
+      
+        <Route path='/dashboard' component={Dashboard} />
+        <Route path='/product' component={Product}/>
+        <Route path='/' component={Login} />
+    
+            
+     
         </Switch>
       </div>
     </BrowserRouter>
