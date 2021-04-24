@@ -18,7 +18,7 @@ const ConfigureStore = () => {
 }
     const rootReducer = combineReducers({
         login: LoginReducer,
-        product:ProductReducer,
+        products:ProductReducer,
     });
 
     return createStore(rootReducer,intialState,applyMiddleware(thunk,saver));
