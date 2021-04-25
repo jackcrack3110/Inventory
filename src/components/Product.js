@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 import './Product.css'
 const Product = ({ products }) => {
     console.log("Products ", products)
+
+    const [filteredProducts, setFilteredProducts] = useState(products)
+
     return (
-
-
         <div >
             <nav className="product-filter">
 
@@ -24,21 +25,24 @@ const Product = ({ products }) => {
 
                     <div className="collection-sort">
                         <label>Search</label>
-                        <input type="search" value="name"/>
+                        <input type="search" onChange={(e) => {
+                            const searchString = e.currentTarget.value;
+                            setFilteredProducts(products.filter(x => x.name.includes(searchString)));
+                        }} />
                     </div>
                 </div>
 
             </nav>
-            { products.map((product) => (
+            { filteredProducts.map((product) => (
                 <div className="product-card">
                     <div className="product-image">
-                       <img src={`${product.image}`} alt="image" />
+                        <img src={`${product.image}`} alt="image" />
                     </div>
                     <div className="product-info">
-                    <h1>{`Name-${product.name}`}</h1>
-                    <p>{`Description-${product.description}`}</p>
-                    <p>{`Quantity-${product.quantity}`}</p>
-                    <p>{`Price-${product.price}`}</p>
+                        <h1>{`Name-${product.name}`}</h1>
+                        <p>{`Description-${product.description}`}</p>
+                        <p>{`Quantity-${product.quantity}`}</p>
+                        <p>{`Price-${product.price}`}</p>
                     </div>
                 </div>
             ))}
