@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import AddProductForm from '../components/AddProductForm';
 import { LogoutAction } from '../store/actions/LogoutAction';
 const Dashboard = (props) => {
-   
-    const [showForm,setShowForm] = useState(false)
-    const logout = () =>{
+
+    const [showForm, setShowForm] = useState(false)
+    const logout = () => {
         console.log("I am in logout")
         props.logoutAction().then(result => {
             if (result.success) {
@@ -22,14 +22,18 @@ const Dashboard = (props) => {
     }
 
     return (
-        <div className="wrap">
-            <h1>Welcome {`${props.userDetails?.username}`}</h1> <button onClick={handleLogout}>Logout</button>
-            <p>{`Your account was created on ${props.userDetails?.date}`}</p>
-            <button onClick={handleClick}>
-              Add a Product
-            </button>
-            {showForm && <AddProductForm/>}
+        <div className="dashboard-wrap">
+            <div className="container">
+                <h1>Welcome {`${props.userDetails?.username}`}</h1>
+                <p>{`Your account was created on ${props.userDetails?.date}`}</p>
+                <button className="logout-button" onClick={handleLogout}>Logout</button> 
+                <button onClick={handleClick}>
+                    Add a Product
+                 </button>
+            </div>
+            {showForm && <AddProductForm />}
         </div>
+
     )
 }
 const mapStateToProps = (state) => {

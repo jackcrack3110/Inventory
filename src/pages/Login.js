@@ -46,7 +46,6 @@ const Login = (props) => {
                             {!isLoading ? "Login" : 'Loading...'}
                         </button>
                     </div>
-
                 </form>
             </div>
         </div>

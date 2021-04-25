@@ -1,0 +1,13 @@
+
+  .Title {
+    box-sizing: border-box;
+    width: 100% !important;
+    display: flex;
+    position: sticky;
+    justify-content: center;
+    align-items: baseline;
+    padding: 0;
+    margin-bottom: 1em !important;
+    background-color: rgb(5, 23, 80);
+    color: #fff;
+  }

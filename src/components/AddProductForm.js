@@ -31,81 +31,86 @@ const AddProductForm = (props) => {
     return e.target.name === "uname"
       ? setName(e.target.value)
       : e.target.name == "desc"
-      ? setDescription(e.target.value)
-      : e.target.name == "quant"
-      ? setQuantity(e.target.value)
-      : e.target.name == "price"
-      ? setPrice(e.target.value)
-      : e.target.name === "image"
-      ? setImage(e.target.value)
-      : () => {};
+        ? setDescription(e.target.value)
+        : e.target.name == "quant"
+          ? setQuantity(e.target.value)
+          : e.target.name == "price"
+            ? setPrice(e.target.value)
+            : e.target.name === "image"
+              ? setImage(e.target.value)
+              : () => { };
   };
   const handleClick = (e) => {
     e.preventDefault();
-    product(name, description, quantity, price, image);
+     name.length && quantity && price && product(name, description, quantity, price, image);
   };
 
   return (
-    <form action="/" method="post">
-      <div className="container">
-        <label htmlFor="uname">
-          <b>Name</b>
-        </label>
-        <input
-          type="text"
-          value={name || ''}
-          name="uname"
-          placeholder="Enter Name"
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="desc">
-          <b>Description</b>
-        </label>
-        <input
-          type="text"
-          value={description || ''}
-          name="desc"
-          placeholder="Enter Description"
-          onChange={handleChange}
-        />
-        <label htmlFor="quant">
-          <b>Quantity</b>
-        </label>
-        <input
-          type="number"
-          value={quantity || ''}
-          name="quant"
-          placeholder="Enter Quantity"
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="price">
-          <b>Price</b>
-        </label>
-        <input
-          type="number"
-          value={price || ''}
-          name="price"
-          placeholder="Enter Price"
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="image">
-          <b>Image</b>
-        </label>
-        <input
-          type="text"
-          value={image || ''}
-          name="image"
-          placeholder="Enter Image"
-          onChange={handleChange}
-        />
-        <button type="submit" onClick={handleClick}>
-          {!isLoading ? "Save" : "Loading..."}
-        </button>
+    <div className="wrap">
+      <div className="login">
+        <form action="/" method="post">
+          <div className="container">
+            <h1>Adding a Product</h1>
+            <label htmlFor="uname">
+              <b>Name</b>
+            </label>
+            <input
+              type="text"
+              value={name}
+              name="uname"
+              placeholder="Enter Name"
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="desc">
+              <b>Description</b>
+            </label>
+            <input
+              type="text"
+              value={description || ''}
+              name="desc"
+              placeholder="Enter Description"
+              onChange={handleChange}
+            />
+            <label htmlFor="quant">
+              <b>Quantity</b>
+            </label>
+            <input
+              type="number"
+              value={quantity}
+              name="quant"
+              placeholder="Enter Quantity"
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="price">
+              <b>Price</b>
+            </label>
+            <input
+              type="number"
+              value={price }
+              name="price"
+              placeholder="Enter Price"
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="image">
+              <b>Image</b>
+            </label>
+            <input
+              type="text"
+              value={image || ''}
+              name="image"
+              placeholder="Enter Image"
+              onChange={handleChange}
+            />
+            <button type="submit" onClick={handleClick}>
+              {!isLoading ? "Save" : "Loading..."}
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   );
 };
 const mapStateToProps = (state) => {

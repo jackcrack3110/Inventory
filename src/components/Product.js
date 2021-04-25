@@ -17,9 +17,9 @@ const Product = ({ products }) => {
   return (
     <div>
       <nav className="product-filter">
-        <h1>Products</h1>
+      <h1 className="product-head">Products In The Inventory</h1>
         <div className="sort">
-          <div className="collection-sort">
+          <div className="collection-sort" >
               <label>Search</label>
                 <input
                   type="search"
@@ -33,22 +33,37 @@ const Product = ({ products }) => {
         </div>
       </nav>
       {filteredProducts.map((product, index) => (
-        <div className="product-card" key={index}>
-          <div className="product-image" onClick={() => handleModal(index)}>
+        <div className="card" key={index}>
+          <div className="product-image" >
             <img src={`${product.image}`} alt="image" />
           </div>
-          <div className="product-info">
+          <div className="price">
             <h1>{`Name-${product.name}`}</h1>
             <p>{`Description-${product.description}`}</p>
             <p>{`Quantity-${product.quantity}`}</p>
             <p>{`Price-${product.price}`}</p>
           </div>
+          <button className="product-button" onClick={() => handleModal(index)}>
+              Edit
+          </button>
         </div>
       ))}
       {showModal && (
         <EditForm editItem={editItem} setShowModal={setShowModal} />
       )}
-      <Link to="/dashboard">Back to Dashboard</Link>
+      <div> 
+         <Link 
+            to="/dashboard" 
+            style=
+             {{textDecoration:"none",
+               color:"white",
+               backgroundColor:"#f44336",
+               padding:"14px 25px",
+               textAlign:"center",
+               display:"inline-flex"}}
+            >Back to Dashboard
+         </Link>
+     </div>
     </div>
   );
 };
