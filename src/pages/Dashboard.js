@@ -23,8 +23,8 @@ const Dashboard = (props) => {
 
     return (
         <div className="wrap">
-            <h1>Welcome {`${props.userDetails.username}`}</h1> <button onClick={handleLogout}>Logout</button>
-            <p>{`Your account was created on ${props.userDetails.date}`}</p>
+            <h1>Welcome {`${props.userDetails?.username}`}</h1> <button onClick={handleLogout}>Logout</button>
+            <p>{`Your account was created on ${props.userDetails?.date}`}</p>
             <button onClick={handleClick}>
               Add a Product
             </button>

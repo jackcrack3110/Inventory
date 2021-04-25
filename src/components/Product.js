@@ -33,8 +33,8 @@ const Product = ({ products }) => {
                 </div>
 
             </nav>
-            { filteredProducts.map((product) => (
-                <div className="product-card">
+            { filteredProducts.map((product,index) => (
+                <div className="product-card" key={index}>
                     <div className="product-image">
                         <img src={`${product.image}`} alt="image" />
                     </div>

@@ -7,7 +7,7 @@ const LoginReducer = (state = initial_state, action) => {
         case LOGIN_ACTION_KEY:
             return { ...state, userDetails: { ...action.payload } };
         case LOGOUT_ACTION_KEY:
-            return {...state,userDetails: null,products:null};
+            return {...state,userDetails: null};
         default:
             return state;
     }

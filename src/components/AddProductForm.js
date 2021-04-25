@@ -53,7 +53,7 @@ const AddProductForm = (props) => {
         </label>
         <input
           type="text"
-          value={name}
+          value={name || ''}
           name="uname"
           placeholder="Enter Name"
           onChange={handleChange}
@@ -64,7 +64,7 @@ const AddProductForm = (props) => {
         </label>
         <input
           type="text"
-          value={description}
+          value={description || ''}
           name="desc"
           placeholder="Enter Description"
           onChange={handleChange}
@@ -74,7 +74,7 @@ const AddProductForm = (props) => {
         </label>
         <input
           type="number"
-          value={quantity}
+          value={quantity || ''}
           name="quant"
           placeholder="Enter Quantity"
           onChange={handleChange}
@@ -85,7 +85,7 @@ const AddProductForm = (props) => {
         </label>
         <input
           type="number"
-          value={price}
+          value={price || ''}
           name="price"
           placeholder="Enter Price"
           onChange={handleChange}
@@ -96,7 +96,7 @@ const AddProductForm = (props) => {
         </label>
         <input
           type="text"
-          value={image}
+          value={image || ''}
           name="image"
           placeholder="Enter Image"
           onChange={handleChange}
